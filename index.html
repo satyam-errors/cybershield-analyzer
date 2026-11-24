@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CyberShield — Phishing, Password & URL Analyzer</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%233fb950'><path d='M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z'/></svg>" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>CyberShield Analyzer</h1>
+      <p>Real-time SMS/Email Phishing, Password Strength & URL Heuristic Checker</p>
+    </header>
+
+    <!-- Tool 1: SMS / Email Phishing Detector (Wide Card) -->
+    <section class="card wide-card">
+      <h2>1. SMS / Email Phishing & Spam Detector</h2>
+      <textarea id="msgInput" rows="6" placeholder="Paste suspicious SMS or email content here (e.g., 'Urgent! Your bank KYC is suspended. Click http://bit.ly/verify-kyc now')..."></textarea>
+      <button id="scanMsgBtn" type="button" class="full-btn">Analyze Message</button>
+      <div id="msgResult" class="result-box hidden">
+        <h3 id="msgRiskLevel"></h3>
+        <ul id="msgFlags"></ul>
+      </div>
+    </section>
+
+    <!-- Tool 2: Password Strength Checker -->
+    <section class="card">
+      <h2>2. Password Strength Analyzer</h2>
+      <div class="input-group">
+        <input type="password" id="passwordInput" placeholder="Enter a password to test..." />
+        <button id="togglePass" type="button">Show</button>
+      </div>
+      <div class="strength-bar">
+        <div id="strengthFill"></div>
+      </div>
+      <p id="strengthText" class="status">Strength: 0% — Waiting for input...</p>
+      <ul id="passChecklist" class="checklist">
+        <li id="lenCheck">❌ At least 8 characters</li>
+        <li id="upperCheck">❌ Contains uppercase letter (A-Z)</li>
+        <li id="numCheck">❌ Contains number (0-9)</li>
+        <li id="symCheck">❌ Contains special character (!@#$...)</li>
+      </ul>
+    </section>
+
+    <!-- Tool 3: Phishing URL Detector -->
+    <section class="card">
+      <h2>3. Phishing URL Heuristic Scanner</h2>
+      <div class="input-group">
+        <input type="text" id="urlInput" placeholder="Paste URL (e.g., http://login-bank-verify.xyz)" />
+        <button id="scanUrlBtn" type="button">Scan URL</button>
+      </div>
+      <div id="urlResult" class="result-box hidden">
+        <h3 id="riskLevel"></h3>
+        <ul id="urlFlags"></ul>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
